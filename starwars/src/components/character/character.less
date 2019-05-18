@@ -1,0 +1,34 @@
+.character {
+  width: 700px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+
+  .primary {
+    background: #0f0f0f;
+    color: #fff;
+    border-radius: 0 0 50px 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+
+    .container-info {
+      width: 80%;
+    }
+
+    .container-stats {
+      width: 20%;
+    }
+  }
+
+  .secondary {
+    background: #fff;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    height: 200px;
+    width: 100%;
+  }
+}

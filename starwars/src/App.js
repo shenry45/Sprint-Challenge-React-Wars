@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+
+import CharList from './components/CharList';
+
 import './App.css';
+
 
 class App extends Component {
   constructor() {
@@ -22,6 +26,7 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
+        console.log(data);
         this.setState({ starwarsChars: data.results });
       })
       .catch(err => {
@@ -33,6 +38,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <CharList starwarsChars={this.state.starwarsChars}/>
       </div>
     );
   }
