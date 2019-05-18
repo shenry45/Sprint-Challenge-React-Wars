@@ -1,0 +1,36 @@
+.pagination {
+  margin: 30px auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.pagination .prevPage {
+  padding: 10px 10px 10px 30px;
+  -webkit-clip-path: polygon(25% 0, 100% 0, 100% 100%, 25% 100%, 0 50%);
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 25% 100%, 0 50%);
+  background: #000;
+  color: #fff;
+  border: none;
+  border-right: 2px solid #f00;
+}
+.pagination .prevPage:hover {
+  background: #212121;
+}
+.pagination .current-page {
+  margin: 0 30px;
+  font-size: 1.3rem;
+  color: #fff;
+}
+.pagination .nextPage {
+  padding: 10px 30px 10px 10px;
+  -webkit-clip-path: polygon(75% 0, 100% 50%, 75% 100%, 0 100%, 0 0);
+  clip-path: polygon(75% 0, 100% 50%, 75% 100%, 0 100%, 0 0);
+  background: #000;
+  color: #fff;
+  border: none;
+  border-left: 2px solid #f00;
+}
+.pagination .nextPage:hover {
+  background: #212121;
+}

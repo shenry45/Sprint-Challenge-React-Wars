@@ -16,8 +16,8 @@ function Character(props) {
         </div>
         <div className="container-stats">
           <p>Birth Year: {props.char.birth_year}</p>
-          <p>Height: {props.char.height}cm</p>
-          <p>Weight: {props.char.mass}kg</p>
+          <p>Height: {props.char.height} {props.char.height === 'unknown' ? "" : "in"}</p>
+          <p>Weight: {props.char.mass} {props.char.mass === 'unknown' ? "" : "lbs"}</p>
         </div>
       </div>
       <div className="secondary" style={eyeColor}></div>
