@@ -1,8 +1,13 @@
+.character-list {
+  display: flex;
+  flex-flow: row wrap;
+}
 .character {
-  width: 700px;
-  margin: 0 auto;
+  width: 650px;
+  margin: 0 auto 20px;
   padding: 0;
   position: relative;
+  box-shadow: 0 0 6px 0px;
 }
 .character .primary {
   background: #0f0f0f;
@@ -13,18 +18,30 @@
   justify-content: space-between;
   align-items: flex-start;
   padding: 20px;
+  text-align: left;
 }
 .character .primary .container-info {
-  width: 80%;
+  width: 70%;
+}
+.character .primary .container-info h3 {
+  margin: 0 0 5px;
+  font-family: 'Anton', Impact, Arial, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 100;
+  letter-spacing: 0.2rem;
+}
+.character .primary .container-info p {
+  margin: 5px 0;
+  color: #848484;
 }
 .character .primary .container-stats {
-  width: 20%;
+  width: 30%;
 }
 .character .secondary {
   background: #fff;
   position: absolute;
   top: 0;
   z-index: -1;
-  height: 200px;
+  height: 158px;
   width: 100%;
 }

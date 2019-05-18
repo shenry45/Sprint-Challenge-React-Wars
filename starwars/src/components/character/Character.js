@@ -12,7 +12,7 @@ function Character(props) {
       <div className="primary">
         <div className="container-info">
           <h3>{props.char.name}</h3>
-          <p>{props.char.gender}</p>
+          <p>Gender: {(props.char.gender).toUpperCase()}</p>
         </div>
         <div className="container-stats">
           <p>Birth Year: {props.char.birth_year}</p>
