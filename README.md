@@ -26,11 +26,19 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+React JS is a library designed for reusability of it's components throughtout an application. 
+
 - [ ] What does it mean to _think_ in react?
+
+Thinking in react generally means breaking a whole application down into the structure and pathways components are contained within as well as the props associated.
 
 - [ ] Describe state.
 
+State with React is the property list assigned to a component structure.
+
 - [ ] Describe props.
+
+Props are properties assigned within state and are able to be passed through components via reference.
 
 ## Project Set Up
 
