@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
+
+import CharList from './components/CharList';
+import Pagination from './components/pagination/Pagination';
+
 import './App.css';
+
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      page: 1,
+      prev: null,
+      next: null
     };
   }
 
@@ -13,7 +21,7 @@ class App extends Component {
     this.getCharacters('https://swapi.co/api/people/');
   }
 
-  getCharacters = URL => {
+  getCharacters = (URL, pageKey) => {
     // feel free to research what this code is doing.
     // At a high level we are calling an API to fetch some starwars data from the open web.
     // We then take that data and resolve it our state.
@@ -22,17 +30,58 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        this.setState({ starwarsChars: data.results });
+
+        let pageNumber = 1;
+
+        if (pageKey === 'prev' && data.previous !== null) {
+          pageNumber = parseInt(data.prev.split('=')[1]) + 1;
+        } 
+        if (pageKey === 'next' && data.next !== null){
+          pageNumber = parseInt(data.next.split('=')[1]) - 1;
+        }
+
+        this.setState({ 
+          starwarsChars: data.results,
+          page: pageNumber,
+          prev: data.prev,
+          next: data.next
+        });
+
+        
       })
       .catch(err => {
         throw new Error(err);
       });
   };
 
+  pagePrevious = e => {
+    e.preventDefault();
+
+    if (this.state.page > 1) {
+      this.getCharacters(`https://swapi.co/api/people/?page=${(this.state.page)-1}`, 'prev');
+    }
+
+  }
+
+  pageNext = e => {
+    e.preventDefault();
+
+    if (this.state.next !== null) {
+      this.getCharacters(`https://swapi.co/api/people/?page=${(this.state.page)+1}`, 'next');
+    }
+
+  }
+
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <CharList starwarsChars={this.state.starwarsChars}/>
+        <Pagination
+          page={this.state.page}
+          pagePrevious={this.pagePrevious}
+          pageNext={this.pageNext}
+        />
       </div>
     );
   }
