@@ -30,14 +30,20 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
+        console.log(data);
 
         let pageNumber = 1;
 
         if (pageKey === 'prev' && data.previous !== null) {
-          pageNumber = parseInt(data.prev.split('=')[1]) + 1;
+          pageNumber = parseInt(data.previous.split('=')[1]) + 1;
         } 
-        if (pageKey === 'next' && data.next !== null){
-          pageNumber = parseInt(data.next.split('=')[1]) - 1;
+
+        if (pageKey === 'next') {
+          if (data.next !== null) {
+            pageNumber = parseInt(data.next.split('=')[1]) - 1;
+          } else {
+            pageNumber = parseInt(data.previous.split('=')[1]) + 1;
+          }
         }
 
         this.setState({ 
